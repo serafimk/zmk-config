@@ -16,19 +16,17 @@
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
-        columns = <2>;
-        rows = <5>;
+        columns = <1>;
+        rows = <2>;
         map = <
-           RC(1,0) RC(2,0) RC(3,0) RC(4,0)
-           RC(1,1) RC(2,1) RC(3,1) RC(4,1)
-                                   RC(0,1) RC(0,0)
+           RC(0,0) RC(1,0) RC(2,0) RC(3,0)  RC(4, 0)
         >;
     };
 
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
+        diode-direction = "row2col;
 
         col-gpios
             = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -40,7 +38,6 @@
 
         row-gpios
             = <&xiao_d 3 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 4 GPIO_ACTIVE_HIGH>
             ;
     };
 
